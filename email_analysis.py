@@ -31,8 +31,14 @@ def analyze_email(email_text):
 
 def analyze_empathy_politeness(email_text):
 
-    polite_phrases = ["please", "thank you", "kindly", "would you mind", "I appreciate"]
-    empathetic_phrases = ["I understand", "I’m sorry", "I can imagine", "I sympathize", "It must be difficult"]
+    polite_phrases = ["please", "thank you", "kindly", "would you mind", "I appreciate", "I hope this email finds you well.", "Hope you are well",
+    "Thanks for your time", "Much appreciated, thank you", "Kindly let me know", "Looking forward to it", "Please feel free", "Thank you sincerely", "At your convenience",
+    "Wishing you the best", "Warmest regards always"]
+  
+  
+    empathetic_phrases = ["I understand", "I’m sorry", "I can imagine", "I sympathize", "It must be difficult" "I understand completely",
+    "So sorry to hear", "That sounds frustrating", "Your concerns matter","I am here","Must be so difficult", "Appreciate your patience", "Here to support",
+    "I can imagine"]
 
 
     empathy_score = 0
