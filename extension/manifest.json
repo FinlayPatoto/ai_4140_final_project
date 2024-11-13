@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Team 7",
+    "version": "1.0",
+    "description": "Add’s a word connentation fix. Open the menu and then check what message you are wanting to fix!",
+    "permissions": ["activeTab", "scripting"],
+    "action": {
+      "default_title": "Toggle Sidebar"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ]
+  }
+  
