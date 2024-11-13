@@ -1,1 +1,92 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Checker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        #custom-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            z-index: 2147483647;
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 1px solid #ccc;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if (!document.getElementById('custom-sidebar')) {
+            const bootstrapLink = document.createElement('link');
+            bootstrapLink.rel = 'stylesheet';
+            bootstrapLink.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css';
+            document.head.appendChild(bootstrapLink);
+
+            const sidebar = document.createElement('div');
+            sidebar.id = 'custom-sidebar';
+            sidebar.className = 'p-3 bg-light border-left shadow'; // Bootstrap classes for styling
+
+            sidebar.innerHTML = `
+                <div class="sidebar-header">Ai Checker</div>
+
+                <form class="was-validated">
+                    <div class="mb-3">
+                        <select class="form-select" required aria-label="select example">
+                            <option value="">Select Ai Check</option>
+                            <option value="1">Grammar Check</option>
+                            <option value="2">Connotation Check</option>
+                            <option value="3">Get a response</option>
+                        </select>
+                        <div class="invalid-feedback">Example invalid select feedback</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required text here" required style="height: 150px;"></textarea>
+                    </div>
+                </form>
+
+                <button type="button" id="submit_button_finn" class="btn btn-primary">Submit</button>
+
+                <div>&nbsp;</div>
+
+                <input class="form-control" type="text" value="..." aria-label="readonly input example" readonly>
+
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            `;
+            document.body.appendChild(sidebar);
+
+            const submitButton = document.getElementById("submit_button_finn");
+            const textarea = document.getElementById("validationTextarea");
+
+            submitButton.addEventListener("click", function() {
+                var textValue = textarea.value;
+                if (textValue.trim() === "") {
+                    console.log("Text area is empty");
+                } else {
+                    console.log("doing2");
+                    ask_AI(textValue);
+                }
+            });
+
+            // Show the sidebar (uncomment this line to display it)
+            sidebar.style.display = 'block';
+        }
+
+        function ask_AI(text) {
+            console.log("Sending to AI:", text);
+            // Add logic to interact with AI here
+        }
+    </script>
+</body>
+</html>
