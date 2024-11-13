@@ -1,0 +1,4 @@
+pip install transformers
+pip install torch
+pip install google-generativeai
+pip install language_tool_python
