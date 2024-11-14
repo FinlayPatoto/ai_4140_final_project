@@ -7,24 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Checker</title>
     <style>
-        #custom-sidebar {
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 300px;
-            height: 100%;
-            z-index: 2147483647;
-            display: none;
-            background-color: #f8f9fa;
-            border-left: 1px solid #ccc;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-        }
     </style>
 </head>
 <body>
 
-    <div id="custom-sidebar" class="p-3 bg-light border-left shadow">
         <div class="sidebar-header">Ai Checker</div>
 
         <form class="was-validated">
@@ -52,15 +38,11 @@
         <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-    </div>
 
     <!-- Bootstrap JS and Popper (for dropdowns, tooltips, etc.) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    
     <script>
-        // Show the sidebar (you can adjust this based on conditions)
-        document.getElementById('custom-sidebar').style.display = 'block';
-
         // Handle submit button click
         const submitButton = document.getElementById("submit_button_finn");
         const textarea = document.getElementById("validationTextarea");
