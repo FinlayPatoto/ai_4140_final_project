@@ -41,29 +41,7 @@
 
     <!-- Bootstrap JS and Popper (for dropdowns, tooltips, etc.) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="gemini.js"></script>
-
-    <script>
-        // Handle submit button click
-        const submitButton = document.getElementById("submit_button_finn");
-        const textarea = document.getElementById("validationTextarea");
-
-        submitButton.addEventListener("click", function() {
-            var textValue = textarea.value;
-            if (textValue.trim() === "") {
-                console.log("Text area is empty");
-            } else {
-                console.log("doing2");
-                ask_AI(textValue);
-            }
-        });
-
-        // Placeholder function for AI interaction
-        function ask_AI(text) {
-            console.log("Sending to AI:", text);
-            // Add your AI logic here
-        }
-    </script>
+    <script src="hugging_face.js"></script>
 
 </body>
 </html>
