@@ -1,5 +1,5 @@
 const apiKey = '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';
-const model = 'Qwen/Qwen2.5-1.5B-Instruct';  // Ai model being used
+const model = 'Qwen/Qwen2.5-1.50B-Instruct';  // Ai model being used
 const markerWord = "BOLDFEARLESSCONFIDENT";  //  marker word
 
 // Function to query Hugging Face API
@@ -19,6 +19,7 @@ async function queryHuggingFace(text, topic) {
     try {
       const result = JSON.parse(responseText);
       console.log("Parsed response:", result);
+      console.log("GenerativeText response:", result.generated_text);
       // Update the HTML content to display only the generated text
       document.getElementById('response').innerText = result.generated_text;
       document.querySelector('input[type="text"]').value = result.generated_text; // Set the AI response as the input value
