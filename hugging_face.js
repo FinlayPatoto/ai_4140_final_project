@@ -1,5 +1,5 @@
 const apiKey = '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';
-const model = 'Qwen/Qwen2.5-1.50B-Instruct';  // Ai model being used
+const model = 'Qwen/Qwen2.5-1.5B-Instruct';  // Ai model being used
 const markerWord = "BOLDFEARLESSCONFIDENT";  //  marker word
 
 // Function to query Hugging Face API
