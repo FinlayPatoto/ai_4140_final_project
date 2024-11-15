@@ -12,7 +12,7 @@ async function queryHuggingFace(text, topic) {
     body: JSON.stringify({
       inputs: text,
       parameters: {
-        max_new_tokens: 512, // Increase this number as needed
+        max_new_tokens: 8192, // Increase this number as needed
         temperature: 0.7     // Optional: Adjust other generation parameters
       }
     })
