@@ -19,21 +19,10 @@ async function queryHuggingFace(text, topic) {
     try {
       const result = JSON.parse(responseText);
       console.log("Parsed response:", result);
-
-      const aiResponse = result.generated_text || ""; 
-      const markerIndex = aiResponse.indexOf(markerWord);
-      
-      let extractedText = "";
-      if (markerIndex !== -1) {
-        extractedText = aiResponse.substring(markerIndex + markerWord.length).trim();
-      } else {
-        extractedText = "Marker word not found in the response.";
-      }
-
-      // Update the HTML content to display the extracted response
-      document.getElementById('response').innerText = extractedText;
-      document.querySelector('input[type="text"]').value = extractedText; // Set the extracted text as the input value
-      return extractedText;
+      // Update the HTML content to display the response
+      document.getElementById('response').innerText = JSON.stringify(result.generated_text, null, 2);
+      document.querySelector('input[type="text"]').value = JSON.stringify(result.generated_text, null, 2); // Set the AI response as the input value
+      return result;
     } catch (error) {
       console.error("Error parsing response:", error);
       console.log("Raw response:", responseText);
