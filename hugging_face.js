@@ -9,7 +9,13 @@ async function queryHuggingFace(text, topic) {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ inputs: text })
+    body: JSON.stringify({
+      inputs: text,
+      parameters: {
+        max_new_tokens: 512, // Increase this number as needed
+        temperature: 0.7     // Optional: Adjust other generation parameters
+      }
+    })
   });
 
   const responseText = await response.text(); // Use .text() to see raw response body
