@@ -1,6 +1,5 @@
 const apiKey = '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';
 const model = 'Qwen/Qwen2.5-72B-Instruct';  // Ai model being used
-const markerWord = "BOLDFEARLESSCONFIDENT";  //  marker word
 
 // Function to query Hugging Face API
 async function queryHuggingFace(text, topic) {
@@ -19,10 +18,17 @@ async function queryHuggingFace(text, topic) {
     try {
       const result = JSON.parse(responseText);
       console.log("Parsed response:", result);
-      console.log("GenerativeText response:", result[0].generated_text);
-      // Update the HTML content to display only the generated text
-      document.getElementById('response').innerText = result[0].generated_text;
-      document.querySelector('input[type="text"]').value = result[0].generated_text; // Set the AI response as the input value
+      
+      // Get the generated text (which includes the input text and the AI's response)
+      let generatedText = result[0].generated_text;
+
+      // Remove the input text from the generated response
+      let cleanedText = generatedText.replace(text, '').trim(); // This removes the input text
+
+      console.log("Cleaned response:", cleanedText);
+      document.getElementById('response').innerText = cleanedText; // Display the cleaned response
+      document.querySelector('input[type="text"]').value = cleanedText; // Set the cleaned response as the input value
+
       return result;
     } catch (error) {
       console.error("Error parsing response:", error);
@@ -46,7 +52,7 @@ document.getElementById('submit_button_finn').addEventListener('click', () => {
     document.querySelector('.spinner-border').style.display = 'block';
 
     // You can use the dropdown value to customize the AI query, e.g., pass it as part of the request
-    let prompt = `Topic: ${dropdownValue}\nText: ${textareaValue}\n${markerWord}`;
+    let prompt = `Topic: ${dropdownValue}\nText: ${textareaValue}`;
 
     queryHuggingFace(prompt, dropdownValue)
       .then(response => {
