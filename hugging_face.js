@@ -1,5 +1,6 @@
 const apiKey = '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';
-const model = 'Qwen/Qwen2.5-1.5B-Instruct';  // Replace with the model ID you want to use
+const model = 'Qwen/Qwen2.5-1.5B-Instruct';  // Ai model being used
+const markerWord = "BOLDFEARLESSCONFIDENT";  //  marker word
 
 // Function to query Hugging Face API
 async function queryHuggingFace(text, topic) {
@@ -18,10 +19,21 @@ async function queryHuggingFace(text, topic) {
     try {
       const result = JSON.parse(responseText);
       console.log("Parsed response:", result);
-      // Update the HTML content to display the response
-      document.getElementById('response').innerText = JSON.stringify(result, null, 2);
-      document.querySelector('input[type="text"]').value = JSON.stringify(result, null, 2); // Set the AI response as the input value
-      return result;
+
+      const aiResponse = result.generated_text || ""; 
+      const markerIndex = aiResponse.indexOf(markerWord);
+      
+      let extractedText = "";
+      if (markerIndex !== -1) {
+        extractedText = aiResponse.substring(markerIndex + markerWord.length).trim();
+      } else {
+        extractedText = "Marker word not found in the response.";
+      }
+
+      // Update the HTML content to display the extracted response
+      document.getElementById('response').innerText = extractedText;
+      document.querySelector('input[type="text"]').value = extractedText; // Set the extracted text as the input value
+      return extractedText;
     } catch (error) {
       console.error("Error parsing response:", error);
       console.log("Raw response:", responseText);
@@ -44,7 +56,7 @@ document.getElementById('submit_button_finn').addEventListener('click', () => {
     document.querySelector('.spinner-border').style.display = 'block';
 
     // You can use the dropdown value to customize the AI query, e.g., pass it as part of the request
-    let prompt = `Topic: ${dropdownValue}\nText: ${textareaValue}`;
+    let prompt = `Topic: ${dropdownValue}\nText: ${textareaValue}\n${markerWord}`;
 
     queryHuggingFace(prompt, dropdownValue)
       .then(response => {
