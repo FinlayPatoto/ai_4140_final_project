@@ -19,10 +19,10 @@ async function queryHuggingFace(text, topic) {
     try {
       const result = JSON.parse(responseText);
       console.log("Parsed response:", result);
-      console.log("GenerativeText response:", result.[0].generated_text);
+      console.log("GenerativeText response:", result[0].generated_text);
       // Update the HTML content to display only the generated text
-      document.getElementById('response').innerText = result.[0].generated_text;
-      document.querySelector('input[type="text"]').value = result.[0].generated_text; // Set the AI response as the input value
+      document.getElementById('response').innerText = result[0].generated_text;
+      document.querySelector('input[type="text"]').value = result[0].generated_text; // Set the AI response as the input value
       return result;
     } catch (error) {
       console.error("Error parsing response:", error);
