@@ -1,17 +1,17 @@
-#custom-sidebar {
+#extension-custom-sidebar {
     position: fixed;
     right: 0;
     top: 0;
     width: 300px;
     height: 100%;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
     z-index: 1000;
     overflow-y: auto;
     display: none;
   }
   
-  #custom-sidebar .sidebar-header {
+  .sidebar-header {
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -20,23 +20,23 @@
     text-align: center;
   }
   
-  #custom-sidebar .sidebar-menu {
+  #extension-custom-sidebar .sidebar-menu {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  #custom-sidebar .sidebar-menu li {
+  #extension-custom-sidebar .sidebar-menu li {
     padding: 10px;
   }
   
-  #custom-sidebar .sidebar-menu li a {
+  #extension-custom-sidebar .sidebar-menu li a {
     text-decoration: none;
     color: #333;
     display: block;
   }
   
-  #custom-sidebar .sidebar-menu li a:hover {
-    background-color: #ddd;
+  #extension-custom-sidebar .sidebar-menu li a:hover {
+    background-color: #ffffff;
   }
   
