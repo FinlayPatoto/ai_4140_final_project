@@ -32,7 +32,7 @@
 
         <div>&nbsp;</div>
 
-    <input class="form-control" type="text" value="..." aria-label="readonly input example" readonly id="dynamicInput">
+    <textarea class="form-control" type="text" style="width: 100%; resize: none; overflow: hidden;" aria-label="readonly input example" readonly id="dynamicInput">
         <div class="spinner-border" role="status" style="display: none;">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -48,7 +48,7 @@
         const dynamicInput = document.getElementById('dynamicInput');
 
         function adjustInputWidth() {
-            dynamicInput.style.width = (dynamicInput.value.length + 1) + 'ch';  // 'ch' unit is based on the character width
+            dynamicInput.style.height = (dynamicInput.value.length + 1) + 'ch';  // 'ch' unit is based on the character width
         }
 
         // Adjust the width when the page loads
