@@ -66,7 +66,7 @@ document.getElementById('submit_button_finn').addEventListener('click', () => {
         // Once AI response is received, show the submit button and hide the spinner
         document.getElementById('submit_button_finn').style.display = 'inline-block';
         document.querySelector('.spinner-border').style.display = 'none';
-        document.querySelector('dynamicInput').style.display = 'block';
+        document.getElementById('dynamicInput').style.display = 'block';
       })
       .catch(error => {
         console.error("Error:", error);
