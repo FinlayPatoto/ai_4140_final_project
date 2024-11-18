@@ -33,7 +33,7 @@ async function queryHuggingFace(text, topic) {
 
       console.log("Cleaned response:", cleanedText);
       document.getElementById('response').innerText = cleanedText; // Display the cleaned response
-      document.querySelector('input[type="text"]').value = cleanedText; // Set the cleaned response as the input value
+      document.getElementById('dynamicInput').innerText = cleanedText; // Display the cleaned response
 
       return result;
     } catch (error) {
