@@ -25,11 +25,12 @@
             </div>
 
             <div class="mb-3">
-                <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required text here" required style="height: 150px;"></textarea>
+                <textarea class="form-control is-invalid" id="validationTextarea" oninput="checkCharLimit()" placeholder="Required text here" maxlength="1500" minlength="75" required style="height: 150px;"></textarea>
             </div>
         </form>
 
         <button type="button" id="submit_button_finn" class="btn btn-primary">Submit</button>
+        <span id="errorMsg" style="color: red; display: none;">Minimum 75 characters required.</span>
 
         <div>&nbsp;</div>
 
@@ -57,6 +58,20 @@
 
         // Optionally, adjust the width when the value of the input changes
         dynamicInput.addEventListener('input', adjustInputWidth);
+
+
+    function checkCharLimit() {
+    const textarea = document.getElementById("validationTextarea");
+    const button = document.getElementById("submit_button_finn");
+    const span = document.getElementById("errorMsg")
+    if (textarea.value.length < 75) {
+         button.disabled = true;
+      errorMsg.style.display = "inline";
+    } else {
+      button.disabled = false;
+      errorMsg.style.display = "none";
+    }
+  }
     </script>
 
 </body>
