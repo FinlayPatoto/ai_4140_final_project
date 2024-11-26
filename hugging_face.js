@@ -52,6 +52,7 @@ document.getElementById('submit_button_finn').addEventListener('click', () => {
     // Hide the submit button and show the spinner
     document.getElementById('submit_button_finn').style.display = 'none';
     document.querySelector('.spinner-border').style.display = 'block';
+    disableFields();
 
     // You can use the dropdown value to customize the AI query, e.g., pass it as part of the request
     let prompt = `Topic: ${dropdownValue}\nText: ${textareaValue}`;
@@ -63,14 +64,44 @@ document.getElementById('submit_button_finn').addEventListener('click', () => {
         document.getElementById('submit_button_finn').style.display = 'inline-block';
         document.querySelector('.spinner-border').style.display = 'none';
         document.getElementById('dynamicInput').style.display = 'block';
+        enableFields();
       })
       .catch(error => {
         console.error("Error:", error);
         // In case of an error, show the submit button and hide the spinner
         document.getElementById('submit_button_finn').style.display = 'inline-block';
         document.querySelector('.spinner-border').style.display = 'none';
+        enableFields();
       });
   } else {
     alert("Please fill in both the textarea and select a topic.");
   }
 });
+
+function disableFields() {
+    // Disable the textarea
+    const textarea = document.getElementById("validationTextarea");
+    if (textarea) {
+        textarea.disabled = true;
+    }
+
+    // Disable the select element
+    const select = document.querySelector(".form-select");
+    if (select) {
+        select.disabled = true;
+    }
+}
+
+function enableFields() {
+    // Enable the textarea
+    const textarea = document.getElementById("validationTextarea");
+    if (textarea) {
+        textarea.disabled = false;
+    }
+
+    // Enable the select element
+    const select = document.querySelector(".form-select");
+    if (select) {
+        select.disabled = false;
+    }
+}
