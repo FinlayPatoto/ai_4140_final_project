@@ -28,8 +28,10 @@ async function queryHuggingFace(text, topic) {
       // Get the generated text (which includes the input text and the AI's response)
       let generatedText = result[0].generated_text;
 
-      console.log("Cleaned response:", generatedText);
-      document.getElementById('dynamicInput').innerHTML = marked.parse(generatedText); // Display the cleaned response
+      const cleanText = generatedText[generatedText.find(text):];
+
+      console.log("Cleaned response:", cleanText);
+      document.getElementById('dynamicInput').innerHTML = marked.parse(cleanText); // Display the cleaned response
 
       return result;
     } catch (error) {
