@@ -27,6 +27,8 @@ async function queryHuggingFace(text, topic) {
       
       // Get the generated text (which includes the input text and the AI's response)
       let generatedText = result[0].generated_text;
+      let cleanedText = generatedText.replace(text, '').trim(); // This removes the input text
+      console.log(cleanedText);
 
       console.log("Cleaned response:", generatedText);
       document.getElementById('dynamicInput').innerHTML = marked.parse(generatedText); // Display the cleaned response
