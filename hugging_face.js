@@ -32,7 +32,6 @@ async function queryHuggingFace(text, topic) {
       let cleanedText = generatedText.replace(text, '').trim(); // This removes the input text
 
       console.log("Cleaned response:", cleanedText);
-      document.getElementById('response').innerHTML = marked.parse(cleanedText); // Display the cleaned response
       document.getElementById('dynamicInput').innerHTML = marked.parse(cleanedText); // Display the cleaned response
 
       return result;
